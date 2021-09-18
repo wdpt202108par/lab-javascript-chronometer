@@ -22,8 +22,14 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    // ... your code goes here
+    if (value<10) {
+      return "0"+value;
+    } else {
+      return `${value}`
+    }
   }
+    // ... your code goes here
+
 
   stop() {
     // ... your code goes here
