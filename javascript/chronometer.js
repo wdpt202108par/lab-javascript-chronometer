@@ -26,17 +26,17 @@ class Chronometer {
   }; 
 }
 
-
   stop() {
-    // ... your code goes here
+    clearInterval (this.start)
+    return this.intervalId = null
   }
 
   reset() {
-    // ... your code goes here
+    return this.currentTime = 0
   }
 
   split() {
-    // ... your code goes here
+    return `${this.computeTwoDigitNumber(Math.floor(this.currentTime / 60))}:${this.computeTwoDigitNumber(this.currentTime % 60)}`
   }
 }
 
