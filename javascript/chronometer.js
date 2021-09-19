@@ -19,11 +19,11 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-		if (value.toString().length < 2  ) {
-			return (`0${value.toString()}`)
-	} else {
-			return value.toString();
-	}; 
+    if (value.toString().length < 2  ) {
+      return (`0${value.toString()}`)
+  } else {
+      return value.toString();
+  }; 
 }
 
 
