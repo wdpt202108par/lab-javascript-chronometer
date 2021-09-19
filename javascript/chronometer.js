@@ -19,12 +19,13 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    if (this.getSeconds.toString().length = 1 ) {
-      return (`0${this.getSeconds.toString()}`)
-    } else {
-      return this.getSeconds.toString();
-    }; 
-  }
+		if (value.toString().length < 2  ) {
+			return (`0${value.toString()}`)
+	} else {
+			return value.toString();
+	}; 
+}
+
 
   stop() {
     // ... your code goes here
