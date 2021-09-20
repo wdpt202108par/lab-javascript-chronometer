@@ -25,6 +25,15 @@ class Chronometer {
       return `${value}`;
     }
   }
+/*Alternative pour obtenir une string à partir d'un nombre
+  computeTwoDigitNumber(value) {
+    if((value.toString()).length === 1) {
+      return `0${value}`;
+    } else {
+      return `${value}`;
+    }
+  }
+  */
 
   stop() {
     clearInterval(this.intervalId)
