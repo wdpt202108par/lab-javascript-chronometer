@@ -40,6 +40,7 @@ function clearSplits() {
 
 function setStopBtn() {
   // ... your code goes here
+  
 }
 
 function setSplitBtn() {
@@ -48,18 +49,35 @@ function setSplitBtn() {
 
 function setStartBtn() {
   // ... your code goes here
+ btnLeftElement.onclick = chronometer.start();
+
 }
 
 function setResetBtn() {
   // ... your code goes here
+  btnRightElement.onclick = chronometer.reset();
 }
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnLeftElement.className === 'btn start'){
+    btnLeftElement.className = 'btn stop';
+    btnLeftElement.textContent = 'STOP';
+    btnRightElement.className = 'btn split';
+    btnRightElement.textContent = 'SPLIT';
+  } else {
+    btnLeftElement.className = 'btn start';
+    btnLeftElement.textContent = 'START';
+    btnRightElement.className = 'btn reset';
+    btnRightElement.textContent = 'RESET';
+  }
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnRightElement.className === 'btn reset'){
+    
+  } else {
+   
+  }
 });
