@@ -39,27 +39,33 @@ function clearSplits() {
 }
 
 function setStopBtn() {
-  // ... your code goes here
+  btnLeftElement.setAttribute('class', "btn start")
+  btnLeftElement.innerHTML=`START`
+  //btnLeftElement.className = "btn start"
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  btnRightElement.setAttribute('class', "btn reset")
+  //btnRightElement.className = "btn reset"
 }
-
+ 
 function setStartBtn() {
-  // ... your code goes here
+  btnLeftElement.setAttribute('class', "btn stop")
+  btnLeftElement.innerHTML=`STOP`
+  // btnLeftElement.className = "btn stop"
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRightElement.setAttribute('class', "btn split")
+  //btnRightElement.className = "btn split"
 }
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
+  setStartBtn() ; 
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
+  
 });
