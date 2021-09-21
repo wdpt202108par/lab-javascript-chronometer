@@ -5,7 +5,7 @@ class Chronometer {
   }
 
   start(callback) {
-    var intervalId = setInterval(() => {
+    this.intervalId = setInterval(() => {
       if (callback) {
         callback();
       } else {
@@ -30,8 +30,8 @@ class Chronometer {
     return `${value}`;
   }
 
-  stop(intervalId) {
-    clearInterval(intervalId);
+  stop() {
+    clearInterval(this.intervalId);
   }
 
   reset() {
