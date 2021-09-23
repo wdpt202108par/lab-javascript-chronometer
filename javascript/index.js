@@ -14,15 +14,25 @@ const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+ 
 }
 
 function printMinutes() {
   // ... your code goes here
+  var minutes = chronometer.computeTwoDigitNumber(chronometer.getMinutes());
+  minDecElement.textContent = minutes.charAt(0);
+  minUniElement.textContent = minutes.charAt(1);
+  
+  
 }
 
 function printSeconds() {
   // ... your code goes here
+  var seconds = chronometer.computeTwoDigitNumber(chronometer.getSeconds());
+  secDecElement.textContent = seconds.charAt(0);
+  secUniElement.textContent = seconds.charAt(1);
+  
+
 }
 
 // ==> BONUS
@@ -32,6 +42,9 @@ function printMilliseconds() {
 
 function printSplit() {
   // ... your code goes here
+  printSeconds();
+  
+  printMinutes();
 }
 
 function clearSplits() {
@@ -65,6 +78,7 @@ btnLeftElement.addEventListener('click', () => {
     btnLeftElement.textContent = 'STOP';
     btnRightElement.className = 'btn split';
     btnRightElement.textContent = 'SPLIT';
+    chronometer.start(printSplit());
   } else {
     btnLeftElement.className = 'btn start';
     btnLeftElement.textContent = 'START';
