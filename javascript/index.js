@@ -14,7 +14,10 @@ const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+  minDecElement.innerHTML = chronometer.split()[0]
+  minUniElement.innerHTML = chronometer.split()[1]
+  secDecElement.innerHTML = chronometer.split()[3]
+  secUniElement.innerHTML = chronometer.split()[4]
 }
 
 function printMinutes() {
@@ -31,7 +34,13 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+  splitsElement.innerHTML = chronometer.split()
+  let ol2 = document.createElement("ol")
+  ol2.innerHTML = chronometer.split()
+  //let parent = document.getElementsByTagName
+  //parent.appendChild(ol2)
+  var x = document.section.appendChild(ol2) 
+  document.section.insertBefore(ol2, ol)
 }
 
 function clearSplits() {
@@ -67,13 +76,21 @@ btnLeftElement.addEventListener('click', () => {
   if (btnLeftElement.className === "btn start" ) {
     setStartBtn();
     setResetBtn();
+    chronometer.start(printTime);
   } else {
     setStopBtn();
+    chronometer.stop();
     setSplitBtn();
   }
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  
-});
+  if (btnRightElement.className === "btn reset") {
+    chronometer.reset();
+    printTime();
+  } else if 
+    (btnRightElement.className === "btn split") {
+      printSplit()
+  }
+  });
