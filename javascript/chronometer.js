@@ -6,7 +6,8 @@ class Chronometer {
 
   start(callback) {
     this.intervalId = setInterval(() => {
-      this.currentTime += 1
+      this.currentTime++;
+      if (callback) callback()
     }, 1000)
   }
 
@@ -19,7 +20,7 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    if((value+'').length === 1){
+    if(value <10){
       return `0${value}`;
     } else {
       return `${value}`;
@@ -35,7 +36,11 @@ class Chronometer {
   }
 
   split() {
-    return `${this.computeTwoDigitNumber(this.getMinutes())}:${this.computeTwoDigitNumber(this.getSeconds())}`;
+    const mm = this.computeTwoDigitNumber(this.getMinutes());
+    const ss = this.computeTwoDigitNumber(this.getSeconds());
+
+    return `${mm}:${ss}`;
+    
   }
 }
 
