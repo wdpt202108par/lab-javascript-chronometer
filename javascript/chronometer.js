@@ -6,16 +6,16 @@
     }
 
   start(callback) {
-    this.intervalId = setInterval(() =>{
-    let i = 1
-    this.currentTime = this.currentTime + i;
-      }, 1000)
-      
-    // ... your code goes here
+    this.intervalId = setInterval(() => {
+      this.currentTime++;
+      if (callback){ //verify s'il y a des callback.
+        callback(); // si oui, on execute callback
+      } 
+    }, 1000)
   }
 
   getMinutes() {
-    var secondstoMin = this.currentTime/60;
+    var secondstoMin = this.currentTime / 60;
     return secondstoMin = Math.floor(secondstoMin);
     // ... your code goes here
   }
