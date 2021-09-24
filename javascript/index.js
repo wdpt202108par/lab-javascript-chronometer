@@ -41,10 +41,8 @@ function printSplit() {
   splitsElement.appendChild(liTag);
 }
 
-  
-
 function clearSplits() {
-  // ... your code goes here
+  splitsElement.innerHTML ="";
 }
 
 function setStopBtn() {
@@ -60,7 +58,11 @@ function setStartBtn() {
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  chronometer.reset();
+  minDecElement.innerHTML = "0";
+  minUniElement.innerHTML = "0"; 
+  secDecElement.innerHTML = "0";
+  secUniElement.innerHTML = "0";
 }
 
 // Start/Stop Button
@@ -88,5 +90,9 @@ btnRightElement.addEventListener('click', () => {
     // si le bouton de droite est BLEU
     setSplitBtn();
     printSplit();
+  } else {
+    // si le bouton de droite est GRIS
+    setResetBtn();
+    clearSplits();
   }
 });
