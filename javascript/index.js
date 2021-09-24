@@ -36,8 +36,11 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-splitsElement.innerHTML = `${chronometer.split()}`;
+  let liTag = document.createElement('li');
+  liTag.innerHTML = `${chronometer.split()}`;
+  splitsElement.appendChild(liTag);
 }
+
   
 
 function clearSplits() {
@@ -49,7 +52,7 @@ function setStopBtn() {
 }
 
 function setSplitBtn() {
-  chronometer.split(printSplit);
+  chronometer.split();
 }
 
 function setStartBtn() {
@@ -84,5 +87,6 @@ btnRightElement.addEventListener('click', () => {
   if (btnRightElement.className === "btn split") {
     // si le bouton de droite est BLEU
     setSplitBtn();
+    printSplit();
   }
 });
