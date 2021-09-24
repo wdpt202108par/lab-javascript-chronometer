@@ -19,25 +19,26 @@ function printTime() {
 }
 
 function printMinutes() {
-  var minutesSplitted = chronometer.split();
-  minDecElement.innerHTML = `${minutesSplitted[0]}`;
-  minUniElement.innerHTML = `${minutesSplitted[1]}`; 
+  var splitted = chronometer.split();
+  minDecElement.innerHTML = `${splitted[0]}`;
+  minUniElement.innerHTML = `${splitted[1]}`; 
 }
 
 function printSeconds() {
-  var secondsSplitted = chronometer.split();
-  secDecElement.innerHTML = `${secondsSplitted[3]}`;
-  secUniElement.innerHTML = `${secondsSplitted[4]}`;
+  var splitted = chronometer.split();
+  secDecElement.innerHTML = `${splitted[3]}`;
+  secUniElement.innerHTML = `${splitted[4]}`;
 }
 
 // ==> BONUS
 function printMilliseconds() {
-  // ... your code goes here
+  // ... your code goes here 
 }
 
 function printSplit() {
-  // ... your code goes here
+splitsElement.innerHTML = `${chronometer.split()}`;
 }
+  
 
 function clearSplits() {
   // ... your code goes here
@@ -48,11 +49,11 @@ function setStopBtn() {
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  chronometer.split(printSplit);
 }
 
 function setStartBtn() {
-  chronometer.start();
+  chronometer.start(printTime);
 }
 
 function setResetBtn() {
@@ -60,26 +61,28 @@ function setResetBtn() {
 }
 
 // Start/Stop Button
-btnLeftElement.addEventListener('click', () => {
-  if (btnLeftElement.className === "btn start"){
-    // si le bouton est actuellement VERT
+btnLeftElement.addEventListener('click', () => {  
+ if (btnLeftElement.className === "btn start"){
+    // si le bouton de gauche est VERT
     btnLeftElement.innerHTML = "STOP"; 
     btnLeftElement.className = "btn stop";
     btnRightElement.innerHTML = "SPLIT"; 
     btnRightElement.className = "btn split";
     setStartBtn();
   } else {
-    // si le bouton est actuellement ROUGE
+    // si le bouton de gauche est ROUGE
     btnLeftElement.innerHTML = "START";
     btnLeftElement.className = "btn start";
     btnRightElement.innerHTML = "RESET";
     btnRightElement.className = "btn reset" ;
-    printTime();
     setStopBtn();
   };
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  //  ... your code goes here
+  if (btnRightElement.className === "btn split") {
+    // si le bouton de droite est BLEU
+    setSplitBtn();
+  }
 });

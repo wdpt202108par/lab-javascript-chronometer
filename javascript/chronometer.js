@@ -6,7 +6,7 @@ class Chronometer {
 
   start(callback) {
     this.intervalId = setInterval(() => {
-      this.currentTime++;
+      this.currentTime ++;
       if (callback) callback()
     }, 1000)
   }
@@ -26,15 +26,6 @@ class Chronometer {
       return `${value}`;
     }
   }
-/*Alternative pour obtenir une string à partir d'un nombre
-  computeTwoDigitNumber(value) {
-    if((value.toString()).length === 1) {
-      return `0${value}`;
-    } else {
-      return `${value}`;
-    }
-  }
-  */
 
   stop() {
     clearInterval(this.intervalId)
