@@ -16,6 +16,7 @@ const splitsElement = document.getElementById('splits');
 function printTime() {
   printMinutes();
   printSeconds();
+  printMilliseconds();
 }
 
 function printMinutes() {
@@ -32,7 +33,9 @@ function printSeconds() {
 
 // ==> BONUS
 function printMilliseconds() {
-  // ... your code goes here 
+  var splitted = chronometer.split();
+  milDecElement.innerHTML = `${splitted[6]}`;
+  milUniElement.innerHTML = `${splitted[7]}`;
 }
 
 function printSplit() {
@@ -63,6 +66,8 @@ function setResetBtn() {
   minUniElement.innerHTML = "0"; 
   secDecElement.innerHTML = "0";
   secUniElement.innerHTML = "0";
+  milDecElement.innerHTML = "0";
+  milUniElement.innerHTML = "0";
 }
 
 // Start/Stop Button
