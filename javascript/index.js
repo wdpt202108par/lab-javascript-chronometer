@@ -14,15 +14,22 @@ const milUniElement = document.getElementById('milUni');
 const splitsElement = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+  printMinutes()
+  printSeconds()
 }
 
 function printMinutes() {
-  // ... your code goes here
+  const strtime = chronometer.split(); // '09:12'
+
+  minDecElement.innerHTML = strtime[0]; // "0"
+  minUniElement.innerHTML = strtime[1]; // "9"
 }
 
 function printSeconds() {
-  // ... your code goes here
+  const strtime = chronometer.split(); // '09:12'
+
+  secDecElement.innerHTML = strtime[3]; // "1"
+  secUniElement.innerHTML = strtime[4]; // "2"
 }
 
 // ==> BONUS
@@ -31,35 +38,61 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+  // create a new li
+  const $li = document.createElement('li');
+  $li.innerHTML = chronometer.split()
+  
+  // append it to ul
+  splitsElement.appendChild($li)
 }
 
 function clearSplits() {
-  // ... your code goes here
+  // reset the watch
+  chronometer.reset()
+  printTime()
+
+  // reset the splits
+  splitsElement.innerHTML = ''
 }
 
 function setStopBtn() {
-  // ... your code goes here
+  btnLeftElement.innerHTML = 'STOP';
+  btnRightElement.className = 'btn stop';
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  btnRightElement.innerHTML = 'SPLIT';
+  btnRightElement.className = 'btn split';
 }
 
 function setStartBtn() {
-  // ... your code goes here
+  btnLeftElement.innerHTML = 'START';
+  btnLeftElement.className = 'btn start';
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRightElement.innerHTML = 'RESET';
+  btnRightElement.className = 'btn reset';
 }
 
 // Start/Stop Button
 btnLeftElement.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnLeftElement.innerHTML === 'START') {
+    chronometer.start(printTime);
+    setStopBtn();
+    setSplitBtn();
+  } else {
+    chronometer.stop();
+    setStartBtn();
+    setResetBtn();
+  }
 });
 
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnRightElement.innerHTML === 'RESET') {
+    clearSplits()
+  } else {
+    printSplit()
+  }
 });
